@@ -22,24 +22,6 @@ fun main() {
     println("Введенное число: $number_pol")
 
 }
-class _pol {
-    var  chisl_pol = ""
-    init {
-        var valid = false
-        do {
-            try {
-                chisl_pol = readLine().toString()
-                chisl_pol.toInt()
-                if (chisl_pol.length == 4)
-                    valid = true
-                else
-                    println("Ошибка. Введите четырехзначное число.")
-            } catch (e: NumberFormatException) {
-                println("Ошибка. Введите целое число.")
-            }
-        } while (!valid)
-    }
-}
 
 val gener_com = mutableSetOf<String>()
 fun enter_com(): String {
@@ -49,14 +31,4 @@ fun enter_com(): String {
     } while (number_com in gener_com)
     gener_com.add(number_com)
     return number_com
-}
-
-val gener_pol = mutableSetOf<String>()
-fun enter_pol(): String {
-    var  number_pol = ""
-    do {
-        number_pol = (0 .. 9999).random().toString().padStart(4,'0')
-    } while (number_pol in gener_pol)
-    gener_pol.add(number_pol)
-    return number_pol
 }
